@@ -28,7 +28,7 @@ function removeCurrentGrid(item){
         items = document.querySelectorAll(".gridItem");
         items.forEach(div =>{
             div.addEventListener('mouseover',function(){
-                div.style.backgroundColor= "black";
+                div.style.backgroundColor= getRandomColor();
             })
             })
         
@@ -38,7 +38,7 @@ function removeCurrentGrid(item){
     const items = document.querySelectorAll(".gridItem");
     items.forEach(div =>{
     div.addEventListener('mouseover',function(){
-        div.style.backgroundColor= "black";
+        div.style.backgroundColor= getRandomColor();
     })
     })
     function clear(){
@@ -46,9 +46,15 @@ function removeCurrentGrid(item){
         items.forEach(div =>{
             div.style.backgroundColor="white";
             div.addEventListener('mouseover',function(){
-                div.style.backgroundColor="black";
+                div.style.backgroundColor=getRandomColor();
             })
         })
     }
     const clearButton = document.getElementById("clear");
     clearButton.addEventListener("click",()=>clear());
+function getRandomColor(){
+    let r = Math.random()*255;
+    let g = Math.random()*255;
+    let b = Math.random()*255;
+    return `rgb(${r},${g},${b})`
+}
